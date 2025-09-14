@@ -13,13 +13,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCRezNi5c43Jv__VclfRNWdeLdt6vNL6Og",
-  authDomain: "iot-esp32-web-d12ca.firebaseapp.com",
-  databaseURL: "https://iot-esp32-web-d12ca-default-rtdb.firebaseio.com",
-  projectId: "iot-esp32-web-d12ca",
-  storageBucket: "iot-esp32-web-d12ca.firebasestorage.app",
-  messagingSenderId: "861726541566",
-  appId: "1:861726541566:web:b4b3df9df240eface647af",
+  //seu git config
 };
 
 const app = initializeApp(firebaseConfig);
@@ -103,7 +97,6 @@ function animateValue(id, start, end, duration) {
   window.requestAnimationFrame(step);
 }
 
-// === Listener Realtime Database ===
 function startRealtimeListener() {
   const readingsRef = ref(db, "leituras");
   onValue(readingsRef, (snapshot) => {

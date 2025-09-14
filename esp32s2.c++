@@ -10,7 +10,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
-const String firebaseURL = "https://iot-esp32-web-d12ca-default-rtdb.firebaseio.com/leituras.json";
+const String firebaseURL = "//Url do seu firebase";
 
 void setup() {
   Serial.begin(115200);

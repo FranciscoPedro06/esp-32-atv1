@@ -1,0 +1,60 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <ArduinoJson.h>
+#include <DHT.h>
+
+#define DHTPIN 4       
+#define DHTTYPE DHT22  
+
+DHT dht(DHTPIN, DHTTYPE);
+
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
+const String firebaseURL = "https://iot-esp32-web-d12ca-default-rtdb.firebaseio.com/leituras.json";
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+
+  WiFi.begin(ssid, password);
+  Serial.print("Conectando ao WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nConectado ao WiFi!");
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    float temp = dht.readTemperature();
+    float hum = dht.readHumidity();
+
+    if (isnan(temp) || isnan(hum)) {
+      Serial.println("Falha na leitura do sensor!");
+    } else {
+      StaticJsonDocument<200> doc;
+      doc["temp"] = temp;
+      doc["hum"] = hum;
+      doc["timestamp"] = millis();
+
+      String jsonData;
+      serializeJson(doc, jsonData);
+
+      HTTPClient http;
+      http.begin(firebaseURL);
+      http.addHeader("Content-Type", "application/json");
+      int httpResponseCode = http.POST(jsonData);
+
+      if (httpResponseCode > 0) {
+        Serial.println("Enviado: " + jsonData);
+        Serial.println("Resposta HTTP: " + String(httpResponseCode));
+      } else {
+        Serial.println("Erro ao enviar dados");
+      }
+      http.end();
+    }
+  }
+
+  delay(5000); 
+}

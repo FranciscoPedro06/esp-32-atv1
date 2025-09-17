@@ -3,7 +3,6 @@
 [![Arduino](https://img.shields.io/badge/Arduino-IDE-00979D?logo=arduino&logoColor=white)](https://www.arduino.cc/en/software)
 [![ESP32](https://img.shields.io/badge/ESP32-Board-orange)](https://www.espressif.com/en/products/socs/esp32)
 [![Firebase](https://img.shields.io/badge/Firebase-Realtime%20Database-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/products/realtime-database)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 Projeto de **Internet das Coisas (IoT)** usando um **ESP32** conectado a um sensor **DHT22** para medir **temperatura e umidade em tempo real**, enviando os dados para o **Firebase Realtime Database**.  
 Os valores podem ser exibidos em um **dashboard web estilizado**, atualizando automaticamente a cada leitura.
@@ -53,3 +52,4 @@ const firebaseConfig = {
   appId: "SUA_APP_ID"
 };
 ```
+👉 Assim você tem **tudo em um só lugar**, com espaço para colocar o **Firebase Config** e a **URL do Firebase**.  

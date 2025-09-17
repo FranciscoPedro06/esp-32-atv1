@@ -37,4 +37,19 @@ No código do ESP32, configure seu **Wi-Fi**:
 const char* ssid = "SEU_WIFI";
 const char* password = "SUA_SENHA";
 ```
-Configure também o seu firebae config e a url do seu banc
+
+Configure também o seu firebae config e a url do seu banco.
+
+```cpp
+const String firebaseURL = "//Url do seu firebase";
+
+const firebaseConfig = {
+  apiKey: "SUA_API_KEY",
+  authDomain: "SEU_PROJETO.firebaseapp.com",
+  databaseURL: "https://SEU-PROJETO.firebaseio.com",
+  projectId: "SEU_PROJETO",
+  storageBucket: "SEU_PROJETO.appspot.com",
+  messagingSenderId: "SEU_SENDER_ID",
+  appId: "SUA_APP_ID"
+};
+```

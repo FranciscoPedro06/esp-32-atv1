@@ -52,4 +52,4 @@ const firebaseConfig = {
   appId: "SUA_APP_ID"
 };
 ```
-👉 Assim você tem **tudo em um só lugar**, com espaço para colocar o **Firebase Config** e a **URL do Firebase**.  
+👉 Assim você tem **tudo em um só lugar**, com espaço para colocar o **Firebase Config** e a **URL do Firebase**.
